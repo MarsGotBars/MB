@@ -26,11 +26,11 @@ Vuetifying it
 # Current to-do list
 
 - [x] Create dropzone with active for drag / drop functions
-- [] Shorten file name (but still display file format at the end)
-- [] Add file size options
-- [] Progress bar for upload
-- [] Add more loading messages
-- [] Progress bar for processing
+- [ ] Shorten file name (but still display file format at the end)
+- [ ] Add file size options
+- [ ] Progress bar for upload
+- [ ] Add more loading messages
+- [ ] Progress bar for processing
 
 - optional to-do's
-- [] \(optional) Add separate tab for making video-compilations
+- [ ] \(optional) Add separate tab for making video-compilations
