@@ -1,8 +1,15 @@
 <script setup lang="ts">
-const arr: string[] = ["Working on it!", "widdling thumbs...", "Hard work", "Do you come here often?"]
+import { ref, onBeforeMount } from 'vue';
+const num = ref(0)
+const arr: string[] = ["Working on it!", "Twiddling thumbs...", "Hard work", "Do you come here often?"]
+function random() {
+  num.value = Math.floor(Math.random() * arr.length)
+}
+onBeforeMount(() => {
+  random()
+})
 </script>
 
 <template>
-  <!-- TODO: only appear whilst working on upload -->
-  <div id="test">{{arr[Math.floor(Math.random() * arr.length)]}}</div>
+  <div id="busy">{{ arr[num] }}</div>
 </template>
