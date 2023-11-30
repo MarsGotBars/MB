@@ -2,12 +2,12 @@
 import Progress from './Progress.vue'
 import { ref } from 'vue';
 defineProps({
-  dropzonefile: File
+    DropZoneFile: File
 })
-const inProg = ref(false)
+const inProgress = ref(false)
 const active = ref(false)
 function boolSwap() {
-    inProg.value = !inProg.value;
+    inProgress.value = !inProgress.value;
 }
 
 const toggleActive = () => {
@@ -20,19 +20,21 @@ const toggleActive = () => {
 
 <template>
     <div class="dropzone" 
-         @dragenter.prevent="toggleActive" 
-         @dragleave.prevent="toggleActive" 
-         @dragover.prevent
-         @drop.prevent="toggleActive"
-         :class="{ 'active-drop' : active }"
-         >
+        @dragenter.prevent="toggleActive" 
+        @dragleave.prevent="toggleActive" 
+        @dragover.prevent
+        @drop.prevent="toggleActive"
+        :class="{ 'active-drop' : active }"
+        >
         <span>Drag and Drop File</span>
         <span>OR</span>
         <label for="dropzonefile">Select File</label>
         <input type="file" id="dropzonefile" />
-        <span>File: {{dropzonefile?.name != "File" ? dropzonefile?.name : ""}}</span>
-        <button v-if="inProg != true" @click="boolSwap()">test</button>
-        <div v-if="inProg === true"><Progress /></div>
+        <!-- TODO: weird check, have to look at this later -->
+        <span>File: {{DropZoneFile?.name != "File" ? DropZoneFile?.name : "None selected"}}</span>
+        <span v-if="DropZoneFile?.size != null">Size: {{(DropZoneFile.size/1024/1024).toFixed(1)}}</span>
+        <button v-if="inProgress != true" @click="boolSwap()">test</button>
+        <div v-if="inProgress === true"><Progress /></div>
     </div>
 </template>
 
