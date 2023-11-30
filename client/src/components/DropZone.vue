@@ -30,7 +30,7 @@ const toggleActive = () => {
         <span>OR</span>
         <label for="dropzonefile">Select File</label>
         <input type="file" id="dropzonefile" />
-        <span>File: {{dropzonefile?.name}}</span>
+        <span>File: {{dropzonefile?.name != "File" ? dropzonefile?.name : ""}}</span>
         <button v-if="inProg != true" @click="boolSwap()">test</button>
         <div v-if="inProg === true"><Progress /></div>
     </div>
